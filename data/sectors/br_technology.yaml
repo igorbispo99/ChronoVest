@@ -1,0 +1,25 @@
+name: Brazilian Technology
+classification: custom
+market: local
+currency: BRL
+description: >
+  Technology and software names listed on B3. The B3 tech universe is small and
+  recent; many names IPO'd around 2020-2021 (the engine simply starts buying each
+  once it has prices). Sinqia (SQIA3) was acquired by Evertec and delisted on
+  2023-11-01, encoded with an end date and auto-liquidated by the engine.
+members:
+  - ticker: TOTS3.SA
+    note: Totvs - ERP and enterprise software
+  - ticker: LWSA3.SA
+    note: Locaweb - cloud, hosting, commerce
+  - ticker: INTB3.SA
+    note: Intelbras - networking and electronics (IPO 2021)
+  - ticker: POSI3.SA
+    note: Positivo Tecnologia - hardware and IoT
+  - ticker: BMOB3.SA
+    note: Bemobi - mobile software (IPO 2021)
+  - ticker: NGRD3.SA
+    note: Neogrid - supply-chain software (IPO 2020)
+  - ticker: SQIA3.SA
+    end: 2023-11-01
+    note: Sinqia - financial software, delisted after Evertec acquisition

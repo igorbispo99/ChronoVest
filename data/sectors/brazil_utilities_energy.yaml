@@ -1,0 +1,40 @@
+name: Brazilian Utilities and Energy
+classification: custom
+market: local
+currency: BRL
+description: >
+  Power generation, transmission, distribution and integrated energy on B3,
+  plus sanitation (Sabesp). Demonstrates corporate-action handling: Auren
+  (AURE3) starts at its Mar 2022 listing; EDP Brasil (ENBR3) ends at its Aug
+  2023 delisting after EDP's tender offer and is liquidated by the engine.
+members:
+  - ticker: PETR4.SA
+    note: Petrobras (PN) - integrated oil and gas
+  - ticker: ELET3.SA
+    note: Eletrobras (ON) - privatised 2022
+  - ticker: EQTL3.SA
+    note: Equatorial Energia (ON)
+  - ticker: EGIE3.SA
+    note: Engie Brasil Energia (ON)
+  - ticker: CMIG4.SA
+    note: Cemig (PN)
+  - ticker: CPLE6.SA
+    note: Copel (PNB)
+  - ticker: CPFE3.SA
+    note: CPFL Energia (ON)
+  - ticker: ENGI11.SA
+    note: Energisa (units)
+  - ticker: TRPL4.SA
+    note: ISA CTEEP / Transmissao Paulista (PN)
+  - ticker: TAEE11.SA
+    note: Taesa (units) - transmission
+  - ticker: NEOE3.SA
+    note: Neoenergia (ON)
+  - ticker: SBSP3.SA
+    note: Sabesp (ON) - water and sanitation, privatised 2024
+  - ticker: AURE3.SA
+    start: 2022-03-28
+    note: Auren Energia - listed 28 Mar 2022 from CESP reorganisation
+  - ticker: ENBR3.SA
+    end: 2023-08-21
+    note: EDP Brasil - delisted Aug 2023 after EDP tender offer

@@ -1,0 +1,28 @@
+name: Brazilian Banks
+classification: custom
+market: local
+currency: BRL
+description: >
+  Liquid banking names listed on B3 (Brazil). Tickers use Yahoo's .SA suffix.
+  Preferred (PN, 4) or unit (11) lines are used where they are the more liquid
+  class. Add defunct names with end dates to reduce survivorship bias.
+members:
+  - ticker: ITUB4.SA
+    note: Itau Unibanco (PN) - largest private bank
+  - ticker: BBDC4.SA
+    note: Bradesco (PN)
+  - ticker: BBAS3.SA
+    note: Banco do Brasil (ON) - state-controlled
+  - ticker: SANB11.SA
+    note: Santander Brasil (units)
+  - ticker: BPAC11.SA
+    note: BTG Pactual (units)
+  - ticker: BRSR6.SA
+    note: Banrisul (PNB)
+  - ticker: ABCB4.SA
+    note: Banco ABC Brasil (PN)
+  - ticker: BPAN4.SA
+    end: 2025-10-24
+    note: Banco Pan (PN) - incorporated by BTG Pactual, last B3 trade 2025-10-24
+  - ticker: BMGB4.SA
+    note: Banco BMG (PN)

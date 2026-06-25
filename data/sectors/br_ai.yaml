@@ -1,0 +1,22 @@
+name: Brazilian AI-Exposed
+classification: custom
+market: local
+currency: BRL
+description: >
+  Brazil has no pure-play listed AI companies; this is a proxy basket of B3 tech
+  names with meaningful data / analytics / automation exposure. Treat as a
+  thematic approximation, not a strict classification. Overlaps with Brazilian
+  Technology by design.
+members:
+  - ticker: TOTS3.SA
+    note: Totvs - AI features in ERP (Carol platform)
+  - ticker: NGRD3.SA
+    note: Neogrid - demand forecasting and supply-chain analytics
+  - ticker: INTB3.SA
+    note: Intelbras - smart devices and computer vision
+  - ticker: POSI3.SA
+    note: Positivo - hardware, edge and IoT
+  - ticker: LWSA3.SA
+    note: Locaweb - data and commerce automation
+  - ticker: BMOB3.SA
+    note: Bemobi - mobile engagement and automation

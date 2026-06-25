@@ -1,0 +1,30 @@
+name: International AI
+classification: custom
+market: international
+currency: USD
+description: >
+  Thematic basket of globally listed companies central to the AI value chain:
+  GPUs and accelerators, foundation-model platforms, and AI infrastructure. This
+  is a theme, not an exchange classification. US-listed (USD) plus TSMC and ASML
+  ADRs; converted to BRL in international mode.
+members:
+  - ticker: NVDA
+    note: Nvidia - AI GPUs
+  - ticker: AMD
+    note: AMD - GPUs and accelerators
+  - ticker: AVGO
+    note: Broadcom - AI networking and custom silicon
+  - ticker: MSFT
+    note: Microsoft - Azure AI, OpenAI
+  - ticker: GOOGL
+    note: Alphabet - DeepMind, TPUs
+  - ticker: META
+    note: Meta - Llama, AI infrastructure
+  - ticker: TSM
+    note: TSMC (ADR) - leading-edge foundry
+  - ticker: ASML
+    note: ASML (ADR) - EUV lithography
+  - ticker: PLTR
+    note: Palantir - AI/analytics software
+  - ticker: SMCI
+    note: Super Micro - AI servers

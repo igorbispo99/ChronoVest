@@ -1,0 +1,29 @@
+name: International Technology
+classification: custom
+market: international
+currency: USD
+description: >
+  Large-cap global technology, predominantly US-listed (USD). In international
+  mode every price is converted to BRL, so the result a Brazilian investor sees
+  includes the USD/BRL effect.
+members:
+  - ticker: AAPL
+    note: Apple
+  - ticker: MSFT
+    note: Microsoft
+  - ticker: GOOGL
+    note: Alphabet
+  - ticker: AMZN
+    note: Amazon
+  - ticker: META
+    note: Meta Platforms
+  - ticker: ORCL
+    note: Oracle
+  - ticker: ADBE
+    note: Adobe
+  - ticker: CRM
+    note: Salesforce
+  - ticker: CSCO
+    note: Cisco
+  - ticker: IBM
+    note: IBM

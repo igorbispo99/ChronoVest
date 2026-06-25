@@ -1,0 +1,26 @@
+name: Brazilian Mining and Steel
+classification: custom
+market: local
+currency: BRL
+description: >
+  Mining, steel and metals names on B3. Commodity-heavy and cyclical. CSN
+  Mineracao (CMIN3) only listed at its 2021 IPO, encoded with a start date so it
+  enters the portfolio when it actually began trading.
+members:
+  - ticker: VALE3.SA
+    note: Vale (ON) - iron ore major
+  - ticker: GGBR4.SA
+    note: Gerdau (PN) - long steel
+  - ticker: GOAU4.SA
+    note: Metalurgica Gerdau (PN) - Gerdau holding
+  - ticker: CSNA3.SA
+    note: Companhia Siderurgica Nacional (ON)
+  - ticker: CMIN3.SA
+    start: 2021-02-18
+    note: CSN Mineracao - IPO 18 Feb 2021
+  - ticker: USIM5.SA
+    note: Usiminas (PNA) - flat steel
+  - ticker: BRAP4.SA
+    note: Bradespar (PN) - holding with Vale stake
+  - ticker: FESA4.SA
+    note: Ferbasa (PN) - ferroalloys

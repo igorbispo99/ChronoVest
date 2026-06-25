@@ -1,0 +1,31 @@
+name: Global Watchmaking
+classification: custom
+market: international
+currency: USD
+description: >
+  Global watch and timepiece makers across exchanges and currencies, which
+  exercises the FX layer: Swiss names in CHF, Japanese in JPY, US in USD. Many
+  prestige makers (Rolex, Patek Philippe, Audemars Piguet) are private and
+  cannot be included. Per-member currency is inferred from the ticker suffix.
+members:
+  - ticker: UHR.SW
+    currency: CHF
+    note: Swatch Group (Omega, Longines, Tissot, Swatch)
+  - ticker: CFR.SW
+    currency: CHF
+    note: Richemont (Cartier, IWC, Jaeger-LeCoultre, Vacheron Constantin)
+  - ticker: "7762.T"
+    currency: JPY
+    note: Citizen Watch (Tokyo)
+  - ticker: "8050.T"
+    currency: JPY
+    note: Seiko Group (Tokyo)
+  - ticker: "6952.T"
+    currency: JPY
+    note: Casio Computer (Tokyo) - watches and electronics
+  - ticker: MOV
+    currency: USD
+    note: Movado Group (NYSE)
+  - ticker: FOSL
+    currency: USD
+    note: Fossil Group (Nasdaq)

@@ -1,0 +1,28 @@
+name: International Banking
+classification: custom
+market: international
+currency: USD
+description: >
+  Large US-listed banks (USD), converted to BRL in international mode. Pairs with
+  the local Brazilian Banks sector so the two modes can be compared.
+members:
+  - ticker: JPM
+    note: JPMorgan Chase
+  - ticker: BAC
+    note: Bank of America
+  - ticker: WFC
+    note: Wells Fargo
+  - ticker: C
+    note: Citigroup
+  - ticker: GS
+    note: Goldman Sachs
+  - ticker: MS
+    note: Morgan Stanley
+  - ticker: USB
+    note: U.S. Bancorp
+  - ticker: PNC
+    note: PNC Financial
+  - ticker: TFC
+    note: Truist Financial
+  - ticker: COF
+    note: Capital One
