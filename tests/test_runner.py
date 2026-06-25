@@ -1,7 +1,5 @@
 ﻿from datetime import date
 
-import pytest
-
 from chronovest.config import BacktestConfig, Market, RebalanceFrequency, WeightingMethod
 from chronovest.data.brazil_indicators import StaticIndicators
 from chronovest.data.currency import StaticConverter

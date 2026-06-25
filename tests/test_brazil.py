@@ -9,7 +9,7 @@ from chronovest.analytics.brazil import (
     simulate_dca,
     xirr,
 )
-from chronovest.config import BacktestConfig, RebalanceFrequency, WeightingMethod
+from chronovest.config import BacktestConfig, WeightingMethod
 from chronovest.data.brazil_indicators import StaticIndicators
 from chronovest.engine.portfolio import PortfolioEngine
 from chronovest.universe.sector import Membership, Sector
