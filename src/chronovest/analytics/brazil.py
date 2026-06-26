@@ -1,4 +1,4 @@
-﻿"""Brazil-framed analytics: CDI, IPCA and money-weighted returns.
+"""Brazil-framed analytics: CDI, IPCA and money-weighted returns.
 
 Everything here keeps the Brazilian investor's perspective: nominal returns are
 compared against the CDI (the local risk-free), deflated by the IPCA to give

@@ -1,4 +1,4 @@
-﻿"""Universe layer: point-in-time sector membership."""
+"""Universe layer: point-in-time sector membership."""
 
 from chronovest.universe.sector import Membership, Sector, load_sector
 

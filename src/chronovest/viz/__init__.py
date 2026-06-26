@@ -1,4 +1,4 @@
-﻿"""Visualization layer: plotly figures built from a BacktestResult."""
+"""Visualization layer: plotly figures built from a BacktestResult."""
 
 from chronovest.viz.charts import (
     allocation_area,

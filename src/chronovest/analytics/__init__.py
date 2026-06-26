@@ -1,4 +1,4 @@
-﻿"""Analytics layer: performance, risk and Brazil-framed metrics."""
+"""Analytics layer: performance, risk and Brazil-framed metrics."""
 
 from chronovest.analytics.metrics import (
     PerformanceReport,

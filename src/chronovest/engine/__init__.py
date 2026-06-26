@@ -1,4 +1,4 @@
-﻿"""Engine layer: weighting strategies and the backtest portfolio engine."""
+"""Engine layer: weighting strategies and the backtest portfolio engine."""
 
 from chronovest.engine.weighting import (
     WeightingStrategy,

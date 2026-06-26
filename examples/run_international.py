@@ -1,4 +1,4 @@
-﻿"""International mode: foreign sector converted to BRL, vs CDI/IPCA/Ibovespa + native index.
+"""International mode: foreign sector converted to BRL, vs CDI/IPCA/Ibovespa + native index.
 
     python examples/run_international.py
 """

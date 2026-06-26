@@ -1,4 +1,4 @@
-﻿"""Data ingestion layer: providers, models, caching, currency and indicators."""
+"""Data ingestion layer: providers, models, caching, currency and indicators."""
 
 from chronovest.data.base import DataProvider, PriceFrame
 from chronovest.data.currency import (

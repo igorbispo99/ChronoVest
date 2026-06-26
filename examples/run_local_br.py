@@ -1,4 +1,4 @@
-﻿"""Local mode: invest monthly in a B3 sector, reported in BRL vs CDI/IPCA/Ibovespa.
+"""Local mode: invest monthly in a B3 sector, reported in BRL vs CDI/IPCA/Ibovespa.
 
     python examples/run_local_br.py
 """

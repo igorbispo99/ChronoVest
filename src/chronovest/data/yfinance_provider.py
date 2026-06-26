@@ -1,17 +1,20 @@
-﻿"""yfinance-backed DataProvider.
+"""yfinance-backed DataProvider.
 
 Fails soft: a ticker that 404s, is delisted, or returns nothing yields an empty
 frame instead of raising, so one bad symbol never breaks a whole sector backtest
 (the engine reports skipped tickers as a warning).
 
+Robust to Yahoo's HTTP 406 ("Not Acceptable"): requests go through a
+browser-impersonating curl_cffi session when available. If Yahoo still returns
+nothing for every ticker, that almost always means an outdated yfinance - run
+``pip install -U yfinance curl_cffi``.
+
 Free-data caveats (documented intentionally):
-  * Historical market capitalization is not directly available. It is
-    approximated as ``shares_outstanding(t) x price(t)`` using yfinance's
-    historical share count when available, else the latest known share count
-    held constant. Treat market-cap weights as best-effort, not point-in-time.
-  * Sector membership is not reconstructed here; it comes from the universe
-    layer. Include defunct tickers there (with end dates) to avoid survivorship
-    bias.
+  * Historical market capitalization is approximated as
+    ``shares_outstanding(t) x price(t)``; treat market-cap weights as
+    best-effort, not point-in-time exact.
+  * Sector membership comes from the universe layer; include defunct tickers
+    there (with end dates) to avoid survivorship bias.
 """
 
 from __future__ import annotations
@@ -22,6 +25,7 @@ from datetime import date
 import numpy as np
 import pandas as pd
 
+from chronovest.data._yf_session import make_impersonated_session
 from chronovest.data.base import DataProvider, PriceFrame
 from chronovest.data.models import SecurityMeta
 
@@ -34,19 +38,28 @@ class YFinanceProvider(DataProvider):
             import yfinance  # noqa: F401
         except ImportError as exc:  # pragma: no cover
             raise ImportError("yfinance is required: pip install yfinance") from exc
+        self._session = make_impersonated_session()
+
+    def _ticker(self, symbol: str):
+        import yfinance as yf
+
+        if self._session is not None:
+            try:
+                return yf.Ticker(symbol, session=self._session)
+            except Exception:  # version does not accept session=
+                pass
+        return yf.Ticker(symbol)
 
     def get_prices(
         self, tickers: list[str], start: date, end: date
     ) -> dict[str, PriceFrame]:
-        import yfinance as yf
-
         out: dict[str, PriceFrame] = {}
         for t in tickers:
             try:
-                hist = yf.Ticker(t).history(
+                hist = self._ticker(t).history(
                     start=str(start), end=str(end), auto_adjust=False, actions=True
                 )
-            except Exception:  # delisted / 404 / network variance
+            except Exception:  # delisted / 404 / 406 / network variance
                 hist = None
             if hist is None or hist.empty:
                 out[t] = _empty_price_frame()
@@ -65,8 +78,6 @@ class YFinanceProvider(DataProvider):
     def get_market_caps(
         self, tickers: list[str], start: date, end: date
     ) -> pd.DataFrame:
-        import yfinance as yf
-
         prices = self.get_prices(tickers, start, end)
         cols = {}
         for t in tickers:
@@ -74,7 +85,7 @@ class YFinanceProvider(DataProvider):
             if px is None or px.empty:
                 continue
             try:
-                shares = self._shares_series(yf.Ticker(t), px.index)
+                shares = self._shares_series(self._ticker(t), px.index)
                 cols[t] = px["price"] * shares
             except Exception:  # pragma: no cover - keep one bad ticker from failing
                 continue
@@ -102,12 +113,10 @@ class YFinanceProvider(DataProvider):
         return shares.astype(float)
 
     def get_meta(self, tickers: list[str]) -> dict[str, SecurityMeta]:
-        import yfinance as yf
-
         out: dict[str, SecurityMeta] = {}
         for t in tickers:
             try:
-                info = yf.Ticker(t).info
+                info = self._ticker(t).info
             except Exception:  # pragma: no cover
                 info = {}
             out[t] = SecurityMeta(

@@ -1,4 +1,4 @@
-﻿"""Weighting strategies.
+"""Weighting strategies.
 
 A strategy maps a set of currently-active tickers (plus context such as market
 caps on the rebalance date) to target weights that sum to 1. Adding a new

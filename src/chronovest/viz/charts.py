@@ -1,4 +1,4 @@
-﻿"""Plotly figures and spreadsheet export for a BacktestResult."""
+"""Plotly figures and spreadsheet export for a BacktestResult."""
 
 from __future__ import annotations
 

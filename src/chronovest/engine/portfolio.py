@@ -1,4 +1,4 @@
-﻿"""The backtest portfolio engine.
+"""The backtest portfolio engine.
 
 Default strategy (no selling): capital deployed at the start, plus every
 periodic contribution (aporte), buys the *currently balanced* basket of the
@@ -96,7 +96,11 @@ class PortfolioEngine:
 
         price, div, value_price = self._price_panels(tickers, config, currencies)
         if price.empty:
-            raise ValueError("no price data returned for any ticker in the sector")
+            raise ValueError(
+                "no market data returned for any ticker in the sector. This is "
+                "usually an outdated yfinance hitting Yahoo's HTTP 406; update it "
+                "with: pip install -U yfinance curl_cffi"
+            )
         missing = [t for t in self.sector.all_tickers() if t not in price.columns]
         if missing:
             warnings.append(

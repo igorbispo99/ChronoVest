@@ -1,4 +1,4 @@
-﻿"""Provider interface. Implement this to plug in a new data source."""
+"""Provider interface. Implement this to plug in a new data source."""
 
 from __future__ import annotations
 

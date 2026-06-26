@@ -1,4 +1,4 @@
-﻿"""Monte Carlo forecasters.
+"""Monte Carlo forecasters.
 
 GbmForecaster        -- parametric geometric Brownian motion: daily log returns
                         are Normal(mu, sigma) estimated from history. Smooth,

@@ -1,4 +1,4 @@
-﻿"""ChronoVest: historical sector portfolio backtesting engine.
+"""ChronoVest: historical sector portfolio backtesting engine.
 
 Layered architecture:
     data      -> ingestion and caching of prices, dividends, market caps

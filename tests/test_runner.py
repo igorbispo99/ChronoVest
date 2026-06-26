@@ -1,4 +1,4 @@
-﻿from datetime import date
+from datetime import date
 
 from chronovest.config import BacktestConfig, Market, RebalanceFrequency, WeightingMethod
 from chronovest.data.brazil_indicators import StaticIndicators

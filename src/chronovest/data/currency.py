@@ -14,22 +14,22 @@ from abc import ABC, abstractmethod
 import pandas as pd
 
 SUFFIX_CURRENCY = {
-    ".SA": "BRL",   # B3, Brazil
-    ".SW": "CHF",   # SIX Swiss
-    ".T": "JPY",    # Tokyo
-    ".HK": "HKD",   # Hong Kong
-    ".L": "GBP",    # London (note: many lines quote in GBp pence)
-    ".PA": "EUR",   # Euronext Paris
-    ".AS": "EUR",   # Euronext Amsterdam
-    ".DE": "EUR",   # Xetra
-    ".F": "EUR",    # Frankfurt
-    ".MI": "EUR",   # Milan
-    ".MC": "EUR",   # Madrid
-    ".NS": "INR",   # NSE India
-    ".BO": "INR",   # BSE India
-    ".TO": "CAD",   # Toronto
-    ".AX": "AUD",   # Australia
-    ".MX": "MXN",   # Mexico
+    ".SA": "BRL",
+    ".SW": "CHF",
+    ".T": "JPY",
+    ".HK": "HKD",
+    ".L": "GBP",
+    ".PA": "EUR",
+    ".AS": "EUR",
+    ".DE": "EUR",
+    ".F": "EUR",
+    ".MI": "EUR",
+    ".MC": "EUR",
+    ".NS": "INR",
+    ".BO": "INR",
+    ".TO": "CAD",
+    ".AX": "AUD",
+    ".MX": "MXN",
 }
 
 INDEX_CURRENCY = {
@@ -93,10 +93,17 @@ class StaticConverter(CurrencyConverter):
 
 
 class YFinanceConverter(CurrencyConverter):
-    """FX rates from Yahoo Finance pairs like ``USDBRL=X``."""
+    """FX rates from Yahoo Finance pairs like ``USDBRL=X``.
+
+    Uses a browser-impersonating session (when curl_cffi is available) to avoid
+    Yahoo's HTTP 406 rejections.
+    """
 
     def __init__(self):
         self._cache: dict[tuple[str, str], pd.Series] = {}
+        from chronovest.data._yf_session import make_impersonated_session
+
+        self._session = make_impersonated_session()
 
     def rate(self, frm, to, index):
         if frm == to:
@@ -116,8 +123,11 @@ class YFinanceConverter(CurrencyConverter):
         import yfinance as yf
 
         try:
-            hist = yf.Ticker(f"{frm}{to}=X").history(period="max", auto_adjust=True)
-        except Exception:  # pragma: no cover - network variance
+            pair = f"{frm}{to}=X"
+            ticker = (yf.Ticker(pair, session=self._session)
+                      if self._session is not None else yf.Ticker(pair))
+            hist = ticker.history(period="max", auto_adjust=True)
+        except Exception:  # pragma: no cover - network variance / 406
             hist = None
         if hist is None or hist.empty:
             self._cache[key] = None

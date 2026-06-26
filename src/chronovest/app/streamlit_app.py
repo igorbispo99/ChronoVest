@@ -1,4 +1,4 @@
-﻿"""Streamlit front-end for ChronoVest.
+"""Streamlit front-end for ChronoVest.
 
 Two modes, both reported in BRL with Brazilian benchmarks (CDI, IPCA, Ibovespa):
   * Local (B3)     -- Brazilian assets, no currency conversion.
@@ -113,7 +113,14 @@ if run:
     try:
         full = _run(str(sector_path), cfg)
     except Exception as exc:
-        st.error(f"Backtest failed: {exc}")
+        msg = str(exc)
+        if "406" in msg or "Not Acceptable" in msg or "no market data" in msg:
+            st.error(
+                "Could not fetch market data from Yahoo (HTTP 406). Update the data "
+                "library and restart the app:\n\n`pip install -U yfinance curl_cffi`"
+            )
+        else:
+            st.error(f"Backtest failed: {exc}")
         st.stop()
 
     result, benchmarks, rep = full.result, full.benchmarks, full.report

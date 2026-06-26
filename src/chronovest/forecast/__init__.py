@@ -1,4 +1,4 @@
-﻿"""Forecast layer: probabilistic Monte Carlo projection with bounds."""
+"""Forecast layer: probabilistic Monte Carlo projection with bounds."""
 
 from chronovest.forecast.base import ForecastResult, Forecaster
 from chronovest.forecast.montecarlo import (

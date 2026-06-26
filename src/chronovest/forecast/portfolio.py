@@ -1,4 +1,4 @@
-﻿"""Project a portfolio forward in time with probabilistic bounds.
+"""Project a portfolio forward in time with probabilistic bounds.
 
 Given the historical return distribution of a sector (or the portfolio's
 time-weighted return), simulate many future paths, optionally continuing the

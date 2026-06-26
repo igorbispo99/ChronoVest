@@ -1,4 +1,4 @@
-﻿"""On-disk parquet cache wrapper for any DataProvider.
+"""On-disk parquet cache wrapper for any DataProvider.
 
 Wraps a provider so repeated backtests do not re-download the same series.
 Cache key is (provider class, ticker, kind). Range requests are served from

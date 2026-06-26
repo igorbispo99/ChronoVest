@@ -1,4 +1,4 @@
-﻿"""Forecast a sector forward with probabilistic bounds.
+"""Forecast a sector forward with probabilistic bounds.
 
     python examples/run_forecast.py
 

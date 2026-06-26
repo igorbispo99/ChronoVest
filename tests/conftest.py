@@ -1,4 +1,4 @@
-﻿"""Synthetic data provider so the engine is tested without any network."""
+"""Synthetic data provider so the engine is tested without any network."""
 
 from __future__ import annotations
 

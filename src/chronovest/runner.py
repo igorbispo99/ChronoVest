@@ -1,4 +1,4 @@
-﻿"""High-level orchestration tying the two modes together.
+"""High-level orchestration tying the two modes together.
 
 The base currency is always BRL. The mode decides:
   * LOCAL         -- B3 assets, no FX conversion, benchmarks: CDI, Ibovespa
